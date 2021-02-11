@@ -1,0 +1,81 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  name: Azure Pipelines
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 14.15.x'
+  inputs:
+    versionSpec: 15.15.x
+
+- task: Npm@1
+  displayName: 'angular cli'
+  inputs:
+    command: custom
+    workingDir: coffee
+    verbose: false
+    customCommand: 'install @angular/cli@11.1.1'
+
+- task: Npm@1
+  displayName: dependencies
+  inputs:
+    workingDir: coffee
+    verbose: false
+
+- task: Npm@1
+  displayName: 'build app'
+  inputs:
+    command: custom
+    workingDir: coffee
+    verbose: false
+    customCommand: 'run-script build'
+
+- task: Npm@1
+  displayName: 'run tests'
+  inputs:
+    command: custom
+    workingDir: coffee
+    verbose: false
+    customCommand: 'run test -- --watch=false --code-coverage'
+  continueOnError: true
+
+- task: Npm@1
+  displayName: 'run e2e tests'
+  inputs:
+    command: custom
+    workingDir: coffee
+    verbose: false
+    customCommand: 'run e2e -- --prod=true'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results **/testresults/junit/handy-result.xml'
+  inputs:
+    testResultsFiles: '**/testresults/junit/handy-result.xml'
+    mergeTestResults: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results **/e2e/junit/junitresults.xml'
+  inputs:
+    testResultsFiles: '**/e2e/junit/junitresults.xml'
+    mergeTestResults: true
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage from **/testresults/coverage/code-coverage.xml'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive coffee/dist/coffee'
+  inputs:
+    rootFolderOrFile: coffee/dist/coffee
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
