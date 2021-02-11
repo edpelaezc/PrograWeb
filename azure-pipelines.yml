@@ -41,6 +41,7 @@ steps:
     verbose: false
     customCommand: 'run test -- --watch=false --code-coverage'
   continueOnError: true
+  enabled: false
 
 - task: Npm@1
   displayName: 'run e2e tests'
@@ -50,24 +51,28 @@ steps:
     verbose: false
     customCommand: 'run e2e -- --prod=true'
   continueOnError: true
+  enabled: false
 
 - task: PublishTestResults@2
   displayName: 'Publish Test Results **/testresults/junit/handy-result.xml'
   inputs:
     testResultsFiles: '**/testresults/junit/handy-result.xml'
     mergeTestResults: true
+  enabled: false
 
 - task: PublishTestResults@2
   displayName: 'Publish Test Results **/e2e/junit/junitresults.xml'
   inputs:
     testResultsFiles: '**/e2e/junit/junitresults.xml'
     mergeTestResults: true
+  enabled: false
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage from **/testresults/coverage/code-coverage.xml'
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+  enabled: false
 
 - task: ArchiveFiles@2
   displayName: 'Archive coffee/dist/coffee'
