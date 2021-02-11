@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 pool:
-  name: Azure Pipelines
+  vmImage: 'ubuntu-latest'
 steps:
 - task: NodeTool@0
   displayName: 'Use Node 14.15.x'
