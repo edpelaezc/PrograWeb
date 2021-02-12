@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 
@@ -9,7 +9,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    MatFormFieldModule
   ]
 })
 export class LoginModule { }
