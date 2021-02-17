@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   public loginInvalid: boolean;
+  public date = new Date().getFullYear();
 
   constructor(
     private fb: FormBuilder,
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
     let password = this.form.get('password')?.value;
     if(this.loginService.signIn(username, password)) {
       alert('¡Bienvenido!');
+      this.loginInvalid = false;
     } else {
       this.loginInvalid = true; 
     };

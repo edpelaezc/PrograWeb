@@ -1,21 +1,23 @@
-<mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>LA CATURRITA</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button>
-</mat-toolbar>
 <div class="bg">
+    <p>
+        <mat-toolbar color="accent">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>LA CATURRITA | CAFÉ</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>verified</mat-icon>
+            </button>
+        </mat-toolbar>
+    </p>
     <mat-card>
         <mat-card-content>
+            <h2>Log in</h2>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <h2>Log in</h2>
                 <mat-error *ngIf="loginInvalid">
                     Incorrect username or password
                 </mat-error>
@@ -31,8 +33,17 @@
                         Please provide a valid password
                     </mat-error>
                 </mat-form-field>
-                <button mat-raised-button color="primary">Login</button>
+                <button mat-raised-button color="accent">Login</button>
             </form>
         </mat-card-content>
     </mat-card>
 </div>
+<!-- Footer -->
+<footer class="page-footer font-small">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3"> {{date}} © ED Solutions
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
