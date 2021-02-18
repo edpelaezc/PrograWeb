@@ -1,0 +1,25 @@
+<mat-toolbar color="accent">
+  <mat-toolbar-row>
+    <button routerLink="home" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>coffee</mat-icon>
+    </button>
+    <span>LA CATURRITA</span>
+    <span class="example-spacer"></span>
+    <button routerLink="home" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-button class="example-icon" routerLink="MiCuenta">Proceso</button>
+    <button mat-button class="example-icon" routerLink="MiCuenta">Métodos</button>
+    <button mat-button class="example-icon" routerLink="MiCuenta">Historia</button>
+    <button mat-button class="example-icon" routerLink="MiCuenta">Mi cuenta</button>
+    <button mat-button class="example-icon" routerLink="login" (click)="_loginservice.logout()">Salir</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="container mb-5" style="margin-top: 100px;">  
+  <router-outlet></router-outlet>
+</div>
+<footer class="footer text-center p-3">
+  <p class="m-0">2021 ® ED.</p>
+</footer>
