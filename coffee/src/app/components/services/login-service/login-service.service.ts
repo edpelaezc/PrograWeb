@@ -13,6 +13,7 @@ export class LoginServiceService {
     let passwordAux = localStorage.getItem('password')
 
     if (user == userAux && password == passwordAux) {
+      this.authSubject.next(true);
       return true;
     } else {
       return false;

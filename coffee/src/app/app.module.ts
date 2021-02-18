@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { FormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from "./components/dashboard/dashboard-routing.module";
+import { LoginServiceService } from "./components/services/login-service/login-service.service";
+import { AuthGuard } from "./components/services/login-service/auth/auth.guard";
 
 
 @NgModule({
@@ -22,7 +24,7 @@ import { DashboardRoutingModule } from "./components/dashboard/dashboard-routing
     FormsModule,
     DashboardRoutingModule
   ],
-  providers: [],
+  providers: [ LoginServiceService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
