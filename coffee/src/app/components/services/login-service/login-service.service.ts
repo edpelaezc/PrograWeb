@@ -24,6 +24,7 @@ export class LoginServiceService {
   }
 
   logout() {
+    this.authSubject = false;
     localStorage.removeItem('user');
     localStorage.removeItem('password');
     this._router.navigate(['/login'])
