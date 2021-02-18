@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
     let username= this.form.get('username')?.value;
     let password = this.form.get('password')?.value;
     if(this.loginService.signIn(username, password)) {
-      alert('¡Bienvenido!');
+      alert('¡Bienvenido!');      
       this.loginInvalid = false;
+      this.router.navigate(['Dashboard/home']);
     } else {
       this.loginInvalid = true; 
     };
