@@ -14,29 +14,32 @@
             </button>
         </mat-toolbar>
     </p>
-    <mat-card>
-        <mat-card-content>
-            <h2>Log in</h2>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <mat-error *ngIf="loginInvalid">
-                    Incorrect username or password
-                </mat-error>
-                <mat-form-field class="full-width-input">
-                    <input matInput placeholder="Email" formControlName="username" required>
-                    <mat-error>
-                        Please provide a valid email address
+
+    <div class="container mb-5" style="margin-top: 100px;">
+        <mat-card>
+            <mat-card-content>
+                <h2>Log in</h2>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <mat-error *ngIf="loginInvalid">
+                        Incorrect username or password
                     </mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width-input">
-                    <input matInput type="password" placeholder="Password" formControlName="password" required>
-                    <mat-error>
-                        Please provide a valid password
-                    </mat-error>
-                </mat-form-field>
-                <button mat-raised-button color="accent">Login</button>
-            </form>
-        </mat-card-content>
-    </mat-card>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Email" formControlName="username" required>
+                        <mat-error>
+                            Please provide a valid email address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="password" placeholder="Password" formControlName="password" required>
+                        <mat-error>
+                            Please provide a valid password
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button color="accent">Login</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
 <!-- Footer -->
 <footer class="page-footer font-small">
@@ -44,6 +47,6 @@
     <div class="footer-copyright text-center py-3"> {{date}} © ED
     </div>
     <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+
+</footer>
+<!-- Footer -->
