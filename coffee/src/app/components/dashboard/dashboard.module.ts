@@ -9,9 +9,10 @@ import { HistoryComponent } from './history/history.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from "../../material/material.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PersonalInfoComponent } from './user/personal-info/personal-info.component';
 
 @NgModule({
-  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent],
+  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent, PersonalInfoComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
