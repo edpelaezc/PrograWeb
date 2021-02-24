@@ -1,0 +1,16 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Acción: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+    <mat-form-field *ngIf="action != 'Eliminar'; else elseTemplate">        
+        <input placeholder="Categoria" matInput [(ngModel)]="local_data.categoria">
+        <input type="number" placeholder="Libras" matInput [(ngModel)]="local_data.cantidad">
+        <input type="number" oninput="this.value = Math.abs(this.value)" placeholder="Días" matInput [(ngModel)]="local_data.frecuencia">        
+    </mat-form-field>
+    <ng-template #elseTemplate>
+        ¿Está seguro de eliminar <b>{{local_data.categoria}}</b>?
+    </ng-template>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancelar</button>
+</div>

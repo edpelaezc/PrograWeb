@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from "../../services/login-service/login-service.service";
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private loginService: LoginServiceService
+    private loginService: LoginServiceService,
+    private _snackBar: MatSnackBar
   ) { }
 
 
@@ -32,15 +33,21 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  openSnackBar() {
+    this._snackBar.open('¡Bienvenido!', '', {
+      duration: 1000,
+    });
+  }
+
   onSubmit() {
-    let username= this.form.get('username')?.value;
+    let username = this.form.get('username')?.value;
     let password = this.form.get('password')?.value;
-    if(this.loginService.signIn(username, password)) {
-      alert('¡Bienvenido!');      
+    if (this.loginService.signIn(username, password)) {
+      this.openSnackBar();
       this.loginInvalid = false;
       this.router.navigate(['Dashboard/home']);
     } else {
-      this.loginInvalid = true; 
+      this.loginInvalid = true;
     };
   }
 
