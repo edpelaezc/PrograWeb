@@ -10,7 +10,7 @@ export class LoginServiceService {
   constructor(private _router: Router) {}
 
   authSubject = false;
-  userInfo = { 'Name': 'Eduardo Pelaez', 'Phone': 42721382, 'Email': 'eduanpelaezc@gmail.com', 'Address': 'Casa'};
+  userInfo = { 'Name': 'Eduardo Pelaez', 'Phone': 42721382, 'role': 'user', 'Email': 'eduanpelaezc@gmail.com', 'Address': 'Casa'};
 
   signIn(user: string, password: string) {
     let userAux = localStorage.getItem('user')

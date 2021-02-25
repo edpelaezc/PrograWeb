@@ -7,6 +7,8 @@ import { UserComponent } from './user/user/user.component';
 import { HistoryComponent } from './history/history.component';
 import { MethodsComponent } from './methods/methods.component';
 import { ProcessComponent } from './process/process.component';
+import { ProcessBackofficeComponent } from "./process-backoffice/process-backoffice.component";
+import { MethodsBackofficeComponent } from "./methods-backoffice/methods-backoffice.component";
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -15,7 +17,9 @@ const routes: Routes = [
     { path: 'MiCuenta', component: UserComponent, canActivate: [AuthGuard] },
     { path: 'Historia', component: HistoryComponent, canActivate: [AuthGuard] },
     { path: 'Metodos', component: MethodsComponent, canActivate: [AuthGuard] },
-    { path: 'Proceso', component: ProcessComponent, canActivate: [AuthGuard] }
+    { path: 'MetodosAdmin', component: MethodsBackofficeComponent, canActivate: [AuthGuard] },
+    { path: 'Proceso', component: ProcessComponent, canActivate: [AuthGuard] },
+    { path: 'ProcesoAdmin', component: ProcessBackofficeComponent, canActivate: [AuthGuard] }
   ], canActivate: [AuthGuard] }
 ];
 
