@@ -12,9 +12,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PersonalInfoComponent } from './user/personal-info/personal-info.component';
 import { SubscriptionComponent } from './user/subscription/subscription.component';
 import { ModalCreateComponent } from './user/subscription/modal-create/modal-create.component';
+import { MethodsBackofficeComponent } from './methods-backoffice/methods-backoffice.component';
+import { ProcessBackofficeComponent } from './process-backoffice/process-backoffice.component';
 
 @NgModule({
-  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent],
+  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent, MethodsBackofficeComponent, ProcessBackofficeComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
