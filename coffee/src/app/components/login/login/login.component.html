@@ -1,6 +1,6 @@
 <div class="bg">
     <p>
-        <mat-toolbar color="accent">
+        <mat-toolbar color="primary">
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                 <mat-icon>coffee</mat-icon>
             </button>
@@ -18,7 +18,7 @@
     <div class="container mb-5" style="margin-top: 100px;">
         <mat-card>
             <mat-card-content>
-                <h2>Log in</h2>
+                <h2>Inicie sesión</h2>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <mat-error *ngIf="loginInvalid">
                         Incorrect username or password
@@ -35,7 +35,7 @@
                             Please provide a valid password
                         </mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="accent">Login</button>
+                    <button mat-raised-button color="primary">Login</button>
                 </form>
             </mat-card-content>
         </mat-card>
