@@ -20,7 +20,7 @@ export class LayoutComponent implements OnInit {
   user:userInfo;
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('userInfo') || '{}') as userInfo;
+    this.user = JSON.parse(localStorage.getItem('userInfo') || '{}') as userInfo;    
   }
 
 }

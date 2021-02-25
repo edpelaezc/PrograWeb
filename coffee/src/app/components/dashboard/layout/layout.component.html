@@ -8,7 +8,8 @@
     <button routerLink="home" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
       <mat-icon>home</mat-icon>
     </button>
-    <button mat-button class="example-icon" routerLink="Proceso">Proceso</button>
+    <button mat-button *ngIf="this.user.role == 'user'" class="example-icon" routerLink="Proceso">Proceso</button>
+    <button mat-button *ngIf="this.user.role == 'admin'" class="example-icon" routerLink="ProcesoAdmin">Proceso</button>
     <button mat-button *ngIf="this.user.role == 'user'" class="example-icon" routerLink="Metodos">Métodos</button>
     <button mat-button *ngIf="this.user.role == 'admin'" class="example-icon" routerLink="MetodosAdmin">Métodos</button>
     <button mat-button class="example-icon" routerLink="Historia">Historia</button>
