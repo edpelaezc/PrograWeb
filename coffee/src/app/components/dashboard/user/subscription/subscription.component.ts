@@ -10,7 +10,7 @@ export interface Subscriptions {
   frecuencia: number;
 }
 
-const ELEMENT_DATA: Subscriptions[] = [];
+const ELEMENT_DATA: Subscriptions[] = JSON.parse(localStorage.getItem('suscripciones') || '{}');
 
 @Component({
   selector: 'app-subscription',
@@ -27,7 +27,8 @@ export class SubscriptionComponent implements OnInit {
 
   openDialog(action: any, obj: any) {
     obj.action = action;
-    const dialogRef = this.dialog.open(ModalCreateComponent, {      
+    const dialogRef = this.dialog.open(ModalCreateComponent, {
+      width: '240px',
       data: obj
     });
 
@@ -42,7 +43,7 @@ export class SubscriptionComponent implements OnInit {
     });
   }
 
-  addRowData(row_obj: any) {
+  addRowData(row_obj: { id: any; categoria: any; cantidad: any; frecuencia: any; }) {
     var d = new Date();
     this.dataSource.push({
       id: this.dataSource.length + 1,
@@ -50,6 +51,7 @@ export class SubscriptionComponent implements OnInit {
       cantidad: row_obj.cantidad,
       frecuencia: row_obj.frecuencia
     });
+    localStorage.setItem("suscripciones", JSON.stringify(this.dataSource));
     this.table.renderRows();
   }
 
@@ -57,8 +59,9 @@ export class SubscriptionComponent implements OnInit {
     this.dataSource = this.dataSource.filter((value, key) => {
       if (value.id == row_obj.id) {
         value.categoria = row_obj.categoria,
-        value.cantidad = row_obj.cantidad,
-        value.frecuencia = row_obj.frecuencia
+          value.cantidad = row_obj.cantidad,
+          value.frecuencia = row_obj.frecuencia
+        localStorage.setItem("suscripciones", JSON.stringify(this.dataSource));
       }
       return true;
     });
@@ -68,6 +71,7 @@ export class SubscriptionComponent implements OnInit {
     this.dataSource = this.dataSource.filter((value, key) => {
       return value.id != row_obj.id;
     });
+    localStorage.setItem("suscripciones", JSON.stringify(this.dataSource));
   }
 
   ngOnInit(): void {
