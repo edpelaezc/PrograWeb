@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -26,6 +27,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatMenuModule,
     MatIconModule,
+    MatFormFieldModule,
     MatProgressSpinnerModule,
     MatTabsModule,
     MatListModule,
@@ -38,6 +40,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
     MatTableModule,

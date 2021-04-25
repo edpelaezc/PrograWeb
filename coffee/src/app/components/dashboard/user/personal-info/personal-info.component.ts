@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalInfoComponent implements OnInit {
   
-  user: UserInfo;
+  user: any;
   constructor() { }  
 
 
@@ -16,10 +16,3 @@ export class PersonalInfoComponent implements OnInit {
   }
 
 }
-
-export class UserInfo {
-  Name:string; 
-  Phone:number;
-  Email:string;
-  Address:string;
-};

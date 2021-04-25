@@ -1,24 +1,22 @@
 <div class="bg">
-    <p>
-        <mat-toolbar color="accent">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>coffee</mat-icon>
-            </button>
-            <span>LA CATURRITA</span>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-                <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                <mat-icon>verified</mat-icon>
-            </button>
-        </mat-toolbar>
-    </p>
+    <mat-toolbar color="accent">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>coffee</mat-icon>
+        </button>
+        <span>LA CATURRITA</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>verified</mat-icon>
+        </button>
+    </mat-toolbar>
 
     <div class="container mb-5" style="margin-top: 100px;">
         <mat-card>
             <mat-card-content>
-                <h2>Inicie sesión</h2>
+                <h2>Crea una cuenta</h2>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <mat-error *ngIf="loginInvalid">
                         Incorrect username or password
@@ -35,11 +33,11 @@
                             Please provide a valid password
                         </mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="accent">Login</button>
+                    <button mat-raised-button color="accent">Crear</button>
                 </form>
             </mat-card-content>
         </mat-card>
-        <a id="newAccount" routerLink="/account">Crear una cuenta</a>
+        <a id="newAccount" routerLink="/login">Regresar</a>
     </div>
 </div>
 <!-- Footer -->

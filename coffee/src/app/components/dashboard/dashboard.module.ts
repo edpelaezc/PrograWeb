@@ -14,9 +14,10 @@ import { SubscriptionComponent } from './user/subscription/subscription.componen
 import { ModalCreateComponent } from './user/subscription/modal-create/modal-create.component';
 import { MethodsBackofficeComponent } from './methods-backoffice/methods-backoffice.component';
 import { ProcessBackofficeComponent } from './process-backoffice/process-backoffice.component';
+import { MethodsBackofficeModalComponent } from './methods-backoffice/methods-backoffice-modal/methods-backoffice-modal.component';
 
 @NgModule({
-  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent, MethodsBackofficeComponent, ProcessBackofficeComponent],
+  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, HistoryComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent, MethodsBackofficeComponent, ProcessBackofficeComponent, MethodsBackofficeModalComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
