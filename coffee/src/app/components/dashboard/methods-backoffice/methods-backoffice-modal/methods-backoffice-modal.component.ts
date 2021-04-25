@@ -1,11 +1,10 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export interface Subscriptions {
-  id: number;
-  categoria: string;
-  cantidad: number;
-  frecuencia: number;
+export interface MethodItem {
+  _id: string,
+  name: string,
+  description: string
 }
 
 @Component({
@@ -21,7 +20,7 @@ export class MethodsBackofficeModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<MethodsBackofficeModalComponent>,
     //@Optional() is used to prevent error if no data is passed
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Subscriptions) {
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: MethodItem) {
     console.log(data);
     this.local_data = { ...data };
     this.action = this.local_data.action;

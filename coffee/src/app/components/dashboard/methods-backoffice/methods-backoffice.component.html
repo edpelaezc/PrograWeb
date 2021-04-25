@@ -1,51 +1,51 @@
 <div class="container mb-5" style="margin-top: 30px;">
-    <button mat-raised-button color="accent" (click)="openDialog('Agregar',{})" class="float-right">Agregar
-        suscripción</button>
-    <br>
-</div>
-<div class="container mb-5" style="margin-top: 30px;">
-    <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+    <h1><strong>Métodos</strong></h1>
+    <p>Registre los métodos que se ofrecerán a los clientes.</p>
+    <hr>
+    <div class="container mb-5" style="margin-top: 30px;">
+        <button mat-raised-button color="accent" (click)="openDialog('Agregar',{})" class="float-right">Agregar
+            método</button>
+        <br>
+    </div>
+    <div class="container mb-5" style="margin-top: 30px;">
+        <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
 
-        <!--- Note that these columns can be defined in any order.
-      The actual rendered columns are set as a property on the row definition" -->
-        <!-- Id Column -->
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> <strong>#</strong> </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+            <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> <strong># Identificador</strong> </th>
+                <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+            </ng-container>
 
-        <!-- categoria Column -->
-        <ng-container matColumnDef="categoria">
-            <th mat-header-cell *matHeaderCellDef> <strong>Categoria</strong></th>
-            <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
-        </ng-container>
+            <!-- categoria Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> <strong>Nombre</strong></th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
 
-        <!-- cantidad Column -->
-        <ng-container matColumnDef="cantidad">
-            <th mat-header-cell *matHeaderCellDef> <strong>Cantidad (Lb)</strong></th>
-            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-        </ng-container>
+            <!-- cantidad Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> <strong>Descripción</strong></th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
 
-        <!-- periodicidad Column -->
-        <ng-container matColumnDef="frecuencia">
-            <th mat-header-cell *matHeaderCellDef> <strong>Frecuencia (días)</strong> </th>
-            <td mat-cell *matCellDef="let element"> {{element.frecuencia}} </td>
-        </ng-container>
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> <strong>Acción</strong> </th>
+                <td mat-cell *matCellDef="let element" class="action-link">
+                    <button color="accent" mat-mini-fab (click)="openDialog('Actualizar',element)" matTooltip="Editar">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button color="warn" style="margin-left: 15px;" mat-mini-fab
+                        (click)="openDialog('Eliminar',element)" matTooltip="Eliminar">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
 
-        <!-- Action Column -->
-        <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef> <strong>Acción</strong> </th>
-            <td mat-cell *matCellDef="let element" class="action-link">
-                <button color="accent" mat-mini-fab (click)="openDialog('Actualizar',element)" matTooltip="Editar">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button color="warn" style="margin-left: 15px;" mat-mini-fab (click)="openDialog('Eliminar',element)" matTooltip="Eliminar">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>

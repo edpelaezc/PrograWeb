@@ -4,29 +4,17 @@
     <div style="justify-content: center;" *ngIf="action != 'Eliminar'; else elseTemplate">
         <div>
             <mat-form-field>
-                <mat-label>Categoria</mat-label>
-                <mat-select [(ngModel)]="local_data.categoria" name="categoria">
-                    <mat-option value="Especialidad">Especialidad</mat-option>
-                    <mat-option value="Clasico">Clásico</mat-option>
-                    <mat-option value="Blend">Blend</mat-option>
-                </mat-select>
+                <input type="text" placeholder="Nombre" matInput [(ngModel)]="local_data.name">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
-                <input type="number" oninput="this.value = Math.abs(this.value)" placeholder="Libras" matInput
-                    [(ngModel)]="local_data.cantidad">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field>
-                <input type="number" oninput="this.value = Math.abs(this.value)"
-                    placeholder="Frecuencia de entrega (días)" matInput [(ngModel)]="local_data.frecuencia">
+                <textarea matInput [(ngModel)]="local_data.description" placeholder="Descripción"></textarea>
             </mat-form-field>
         </div>
     </div>
     <ng-template #elseTemplate>
-        ¿Está seguro de eliminar esta suscripción?
+        ¿Está seguro de eliminar este método?
     </ng-template>
 </div>
 <div mat-dialog-actions>
