@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
+export class AccountService {
 
   constructor(private _router: Router, private httpClient: HttpClient) { }
 
@@ -25,30 +25,7 @@ export class LoginServiceService {
     return throwError(errorMessage);
   }
 
-  authSubject = false;
-
-  login(user: string, password: string): Observable<any> {
-
-    return this.httpClient.post(environment.apiURL + '/users/login', { username: user, password: password }).pipe(
-      tap(async (res: any) => {
-        if (res) {
-          localStorage.setItem("userInfo", JSON.stringify(res));
-          this.authSubject = true;
-          return res;
-        }
-      })
-    );
-  }
-
-  logout() {
-    this.authSubject = false;
-    localStorage.removeItem('user');
-    localStorage.removeItem('password');
-    localStorage.removeItem('userInfo');
-    this._router.navigate(['/login'])
-  }
-
-  isAuthenticated() {
-    return this.authSubject;
+  createAccount(user: any): Observable<any> {
+    return this.httpClient.post(environment.apiURL + '/users/create', JSON.stringify(user), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
   }
 }

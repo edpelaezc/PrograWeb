@@ -19,21 +19,33 @@
                 <h2>Crea una cuenta</h2>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <mat-error *ngIf="loginInvalid">
-                        Incorrect username or password
+                        Campo obligatorio
                     </mat-error>
                     <mat-form-field class="full-width-input">
                         <input matInput placeholder="Email" formControlName="username" required>
                         <mat-error>
-                            Please provide a valid email address
+                            Campo obligatorio
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width-input">
                         <input matInput type="password" placeholder="Password" formControlName="password" required>
                         <mat-error>
-                            Please provide a valid password
+                            Campo obligatorio
                         </mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="accent">Crear</button>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" placeholder="Dirección entrega" formControlName="address" required>
+                        <mat-error>
+                            Campo obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="tel" pattern="[0-9]*" placeholder="Celular" formControlName="phone" required>
+                        <mat-error>
+                            Campo obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                    <button type="submit" mat-raised-button color="accent">Crear cuenta</button>
                 </form>
             </mat-card-content>
         </mat-card>

@@ -43,15 +43,15 @@ export class LoginComponent implements OnInit {
     let username = this.form.get('username')?.value;
     let password = this.form.get('password')?.value;    
     
-    this.loginService.login(username, password, 'admin').subscribe(
-      data => {
+    this.loginService.login(username, password).subscribe( res => {
+      if (res.status != 401) {
         this.openSnackBar();
         this.loginInvalid = false;
         this.router.navigate(['Dashboard/home']);
-      },
-      err => { 
-        this.loginInvalid = true;
+      } else {
+        this.loginInvalid = true
       }
+    }
     );  
   }
 

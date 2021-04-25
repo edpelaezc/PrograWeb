@@ -37,12 +37,12 @@ export class MethodsBackofficeService {
     )
   }
 
-  createMethod(subscription: any): Observable<any> {
-    return this.httpClient.post(environment.apiURL + '/method/create', JSON.stringify(subscription), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
+  createMethod(method: any): Observable<any> {
+    return this.httpClient.post(environment.apiURL + '/method/create', JSON.stringify(method), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
   }
 
-  putMethod(subscription: any, id: string): Observable<any> {
-    return this.httpClient.put(environment.apiURL + `/method/update/${id}`, JSON.stringify(subscription), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
+  putMethod(method: any, id: string): Observable<any> {
+    return this.httpClient.put(environment.apiURL + `/method/update/${id}`, JSON.stringify(method), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
   }
 
   deleteMethod(id: string): Observable<any> {

@@ -37,12 +37,12 @@ export class ProcessBackofficeService {
     )
   }
 
-  createProcess(subscription: any): Observable<any> {
-    return this.httpClient.post(environment.apiURL + '/process/create', JSON.stringify(subscription), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
+  createProcess(processItem: any): Observable<any> {
+    return this.httpClient.post(environment.apiURL + '/process/create', JSON.stringify(processItem), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
   }
 
-  putProcess(subscription: any, id: string): Observable<any> {
-    return this.httpClient.put(environment.apiURL + `/process/update/${id}`, JSON.stringify(subscription), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
+  putProcess(processItem: any, id: string): Observable<any> {
+    return this.httpClient.put(environment.apiURL + `/process/update/${id}`, JSON.stringify(processItem), { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).pipe(catchError(this.handleError));
   }
 
   deleteProcess(id: string): Observable<any> {
