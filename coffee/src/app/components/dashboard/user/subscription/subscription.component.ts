@@ -13,7 +13,7 @@ export interface Subscriptions {
   frecuencia: number;
 }
 
-const ELEMENT_DATA: Subscriptions[] = JSON.parse(localStorage.getItem('suscripciones') || '{}');
+const ELEMENT_DATA: Subscriptions[] = []
 
 @Component({
   selector: 'app-subscription',
