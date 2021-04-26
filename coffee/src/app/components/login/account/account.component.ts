@@ -61,6 +61,8 @@ export class AccountComponent implements OnInit {
         }
       })
       
+    } else {
+      this.openSnackBar('Valores incorrectos')
     }
   }
 

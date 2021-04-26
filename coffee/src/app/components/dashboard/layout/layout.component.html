@@ -13,6 +13,7 @@
     <button mat-button *ngIf="this.user.role == 'admin'" class="example-icon" routerLink="ProcesoAdmin">Proceso</button>
     <button mat-button *ngIf="this.user.role == 'user'" class="example-icon" routerLink="Metodos">Métodos</button>
     <button mat-button *ngIf="this.user.role == 'admin'" class="example-icon" routerLink="MetodosAdmin">Métodos</button>    
+    <button mat-button *ngIf="this.user.role == 'admin'" class="example-icon" routerLink="servicios">Servicios</button>    
     <button mat-button class="example-icon" routerLink="MiCuenta">Mi cuenta</button>
     <button mat-button class="example-icon" routerLink="login" (click)="_loginservice.logout()">Salir</button>
   </mat-toolbar-row>

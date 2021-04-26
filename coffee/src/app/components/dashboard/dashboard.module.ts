@@ -15,9 +15,11 @@ import { MethodsBackofficeComponent } from './methods-backoffice/methods-backoff
 import { ProcessBackofficeComponent } from './process-backoffice/process-backoffice.component';
 import { MethodsBackofficeModalComponent } from './methods-backoffice/methods-backoffice-modal/methods-backoffice-modal.component';
 import { ModalComponent } from './process-backoffice/modal/modal.component';
+import { ServiceSizeComponent } from './service-size/service-size.component';
+import { ModalComponentService } from "./service-size/modal/modal.component";
 
 @NgModule({
-  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent, MethodsBackofficeComponent, ProcessBackofficeComponent, MethodsBackofficeModalComponent, ModalComponent],
+  declarations: [HomeComponent, UserComponent, ProcessComponent, MethodsComponent, LayoutComponent, PersonalInfoComponent, SubscriptionComponent, ModalCreateComponent, MethodsBackofficeComponent, ProcessBackofficeComponent, MethodsBackofficeModalComponent, ModalComponent, ServiceSizeComponent, ModalComponentService],
   imports: [
     CommonModule,
     DashboardRoutingModule,

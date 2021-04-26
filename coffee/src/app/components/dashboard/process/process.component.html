@@ -21,8 +21,45 @@
         </div>
         <div class="col-8">
             <h1><strong>Procesos</strong></h1>
-            <p>Cotice diferentes maneras en las que podemos procesar su pedido de café.</p>
+            <p>Realice cotizaciones sobre las diferentes maneras en las que podemos procesar su pedido de café.</p>
             <hr>
+            <!-- agregando formulario -->
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Proceso</mat-label>
+                            <mat-select formControlName="proceso" name="proceso">
+                                <mat-option *ngFor="let item of processes" [value]="item._id">
+                                    {{item.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Cantidad (Libras)</mat-label>
+                            <input type="number" formControlName="cantidad" oninput="this.value = Math.abs(this.value)"
+                                matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Variedades de café</mat-label>
+                                <mat-select formControlName="variedad" name="variedad">
+                                    <mat-option *ngFor="let item of variedades" [value]="item._id">
+                                        {{item.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="float-right" mat-raised-button color="accent">Solicitar cotización</button>
+            </form>
         </div>
     </div>
 </div>

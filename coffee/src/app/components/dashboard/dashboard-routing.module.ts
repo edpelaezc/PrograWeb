@@ -8,6 +8,7 @@ import { MethodsComponent } from './methods/methods.component';
 import { ProcessComponent } from './process/process.component';
 import { ProcessBackofficeComponent } from "./process-backoffice/process-backoffice.component";
 import { MethodsBackofficeComponent } from "./methods-backoffice/methods-backoffice.component";
+import { ServiceSizeComponent } from "./service-size/service-size.component";
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: 'Metodos', component: MethodsComponent, canActivate: [AuthGuard] },
     { path: 'MetodosAdmin', component: MethodsBackofficeComponent, canActivate: [AuthGuard] },
     { path: 'Proceso', component: ProcessComponent, canActivate: [AuthGuard] },
-    { path: 'ProcesoAdmin', component: ProcessBackofficeComponent, canActivate: [AuthGuard] }
+    { path: 'ProcesoAdmin', component: ProcessBackofficeComponent, canActivate: [AuthGuard] },
+    { path: 'servicios', component: ServiceSizeComponent, canActivate: [AuthGuard] }
   ], canActivate: [AuthGuard] }
 ];
 
