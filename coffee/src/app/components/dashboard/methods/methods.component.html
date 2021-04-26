@@ -1,1 +1,59 @@
-<p>methods works!</p>
+<div class="container mb-5" style="margin-top: 30px;">
+    <div class="row">
+        <div class="col-4">
+            <mat-card class="example-card mat-elevation-z4">
+                <img mat-card-image src="assets/metodo.png" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>
+                        Contamos con baristas especializados.
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-8">
+            <h1><strong>Métodos</strong></h1>
+            <p>Ordene sus métodos de preparación favoritos, la venta consiste en comprar una preparación y libra de café.</p>
+            <hr>
+            <!-- agregando formulario -->
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Método</mat-label>
+                            <mat-select formControlName="metodo" name="metodo">
+                                <mat-option *ngFor="let item of methods" [value]="item._id">
+                                    {{item.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Tamaño</mat-label>
+                            <mat-select formControlName="tamaño" name="tamaño">
+                                <mat-option *ngFor="let item of services" [value]="item._id">
+                                    {{item.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Variedades de café</mat-label>
+                                <mat-select formControlName="variedad" name="variedad">
+                                    <mat-option *ngFor="let item of variedades" [value]="item._id">
+                                        {{item.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="float-right" mat-raised-button color="accent">Realizar compra</button>
+            </form>
+        </div>
+    </div>
+</div>
