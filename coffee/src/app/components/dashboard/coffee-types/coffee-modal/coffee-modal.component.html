@@ -1,0 +1,30 @@
+<!-- dialog-box.component.html -->
+<h3 mat-dialog-title>Acción: <strong>{{action}}</strong></h3>
+<div mat-dialog-content>
+    <div style="justify-content: center;" *ngIf="action != 'Eliminar'; else elseTemplate">
+        <div>
+            <mat-form-field>
+                <input type="text" placeholder="Nombre" matInput [(ngModel)]="local_data.name">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input type="number" oninput="this.value = Math.abs(this.value)" placeholder="Cantidad (Libras)"
+                    matInput [(ngModel)]="local_data.qty">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input type="number" oninput="this.value = Math.abs(this.value)" placeholder="Precio (Quetzales)"
+                    matInput [(ngModel)]="local_data.price">
+            </mat-form-field>
+        </div>
+    </div>
+    <ng-template #elseTemplate>
+        ¿Está seguro de eliminar este proceso?
+    </ng-template>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancelar</button>
+</div>

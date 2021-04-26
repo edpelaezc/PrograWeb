@@ -9,6 +9,7 @@ import { ProcessComponent } from './process/process.component';
 import { ProcessBackofficeComponent } from "./process-backoffice/process-backoffice.component";
 import { MethodsBackofficeComponent } from "./methods-backoffice/methods-backoffice.component";
 import { ServiceSizeComponent } from "./service-size/service-size.component";
+import { CoffeeTypesComponent } from "./coffee-types/coffee-types.component";
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -19,7 +20,8 @@ const routes: Routes = [
     { path: 'MetodosAdmin', component: MethodsBackofficeComponent, canActivate: [AuthGuard] },
     { path: 'Proceso', component: ProcessComponent, canActivate: [AuthGuard] },
     { path: 'ProcesoAdmin', component: ProcessBackofficeComponent, canActivate: [AuthGuard] },
-    { path: 'servicios', component: ServiceSizeComponent, canActivate: [AuthGuard] }
+    { path: 'servicios', component: ServiceSizeComponent, canActivate: [AuthGuard] },
+    { path: 'variedades', component: CoffeeTypesComponent, canActivate: [AuthGuard] }
   ], canActivate: [AuthGuard] }
 ];
 
