@@ -5,12 +5,12 @@ import { ProcessService } from "../../services/process-service/process.service";
 
 export interface ProccessItem {
   _id: string,
-  name: string  
+  name: string
 }
 
 export interface CoffeeTypeItem {
   _id: string,
-  name: string  
+  name: string
 }
 
 @Component({
@@ -20,6 +20,7 @@ export interface CoffeeTypeItem {
 })
 export class ProcessComponent implements OnInit {
 
+  user: any
   form: FormGroup;
   processes: ProccessItem[] = []
   variedades: CoffeeTypeItem[] = []
@@ -37,20 +38,21 @@ export class ProcessComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('userInfo') || '')
     this.getProcesses()
     this.getCoffeeTypes()
   }
 
-  openSnackBar(message: string) {
+  openSnackBar(message: string, time: number) {
     this._snackBar.open(message, '', {
-      duration: 1000,
+      duration: time,
     });
   }
 
   getProcesses() {
     this.api.getProcesses().subscribe(res => {
       if (res.status == 500) {
-        this.openSnackBar('Error')
+        this.openSnackBar('Error', 100)
       } else {
         this.processes = [];
         for (let index = 0; index < res.length; index++) {
@@ -63,7 +65,7 @@ export class ProcessComponent implements OnInit {
   getCoffeeTypes() {
     this.api.getCoffeeTypes().subscribe(res => {
       if (res.status == 500) {
-        this.openSnackBar('Error')
+        this.openSnackBar('Error', 1000)
       } else {
         this.variedades = [];
         for (let index = 0; index < res.length; index++) {
@@ -75,25 +77,29 @@ export class ProcessComponent implements OnInit {
 
   submit() {
     if (this.form.status == "VALID") {
-      let cotizacion = {
-        proceso: this.form.controls.proceso.value,
-        cantidad: this.form.controls.cantidad.value,
-        variedad: this.form.controls.variedad.value        
-      }     
-      
-      this.api.createQuotePrice(cotizacion).subscribe(res => {
-        if (res.status == 200) {
-          this.openSnackBar('¡Cotización enviada correctamente!')
-          this.form.reset({
-            proceso: [this.processes, Validators.required],
-            cantidad: ['', Validators.required],
-            variedad: [this.variedades, Validators.required]
-          })
+      if (this.form.controls.cantidad.value >= 10) {
+        let cotizacion = {
+          correo: this.user.username,
+          proceso: this.form.controls.proceso.value,
+          cantidad: this.form.controls.cantidad.value,
+          variedad: this.form.controls.variedad.value
         }
-      })
-      
-    } else {
-      this.openSnackBar('Faltan valores requeridos')
+
+        this.api.createQuotePrice(cotizacion).subscribe(res => {
+          if (res.status == 200) {
+            this.openSnackBar('¡Cotización enviada correctamente!', 1000)
+            this.form.reset({
+              proceso: [this.processes, Validators.required],
+              cantidad: ['', Validators.required],
+              variedad: [this.variedades, Validators.required]
+            })
+          }
+        })
+      } else {
+        this.openSnackBar('Para realizar una cotización necesita mínimo 10 libras.', 2000)
+      }
+    } else {      
+      this.openSnackBar('Faltan valores requeridos', 1000)
     }
   }
 }
