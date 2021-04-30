@@ -40,6 +40,10 @@ export class LoginServiceService {
     );
   }
 
+  confirmSession() {
+    this.authSubject = true;
+  }
+
   logout() {
     this.authSubject = false;
     localStorage.removeItem('user');
