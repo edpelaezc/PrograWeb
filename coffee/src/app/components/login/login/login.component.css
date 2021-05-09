@@ -52,8 +52,7 @@ mat-form-field {
     background: url(/assets/icons8-oficina-365-24.png) 6px 6px no-repeat;
 }
 
-.loginBtn--office:hover,
-.loginBtn--office:focus {
+.loginBtn--office:hover, .loginBtn--office:focus {
     background: #e82f02;
 }
 
@@ -62,7 +61,7 @@ mat-form-field {
     position: relative;
     /* width: 13em;  - apply for fixed size */
     margin: 0.2em;
-    margin-left: 20px;
+    margin-left: 485px;
     padding: 0 15px 0 46px;
     border: none;
     text-align: left;
@@ -89,4 +88,10 @@ mat-form-field {
 
 .loginBtn:active {
     box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
+}
+
+.office-label {
+    text-align: center;
+    color: white;
+    font-weight: bold;
 }
