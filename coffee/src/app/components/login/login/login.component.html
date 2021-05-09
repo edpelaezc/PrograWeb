@@ -36,12 +36,13 @@
                         </mat-error>
                     </mat-form-field>
                     <button mat-raised-button color="accent">Login</button>
+                    <p></p>
+                    <p>O inicie sesión con</p>
+                    <button id="office" class="loginBtn loginBtn--office text-center" (click)="callPassport()">Office 365</button>
                 </form>
             </mat-card-content>
         </mat-card>
-        <a id="newAccount" routerLink="/account">Crear una cuenta</a>
-
-        <button id="office" class="loginBtn loginBtn--office text-center" (click)="callPassport()">Office 365</button>
+        <a id="newAccount" routerLink="/account">Crear una cuenta</a>    
     </div>
 </div>
 <!-- Footer -->
